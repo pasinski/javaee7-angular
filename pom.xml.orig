@@ -60,7 +60,11 @@
                         <configuration>
                             <rules>
                                 <requireJavaVersion>
+<<<<<<< Updated upstream
+                                    <version>${java.version}</version>
+=======
                                     <version>[${java.version},1.8.1)</version>
+>>>>>>> Stashed changes
                                 </requireJavaVersion>
                             </rules>
                         </configuration>
