@@ -5,6 +5,14 @@ module.exports = function (grunt) {
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
+      // Automatically load required Grunt tasks
+      require('jit-grunt')(grunt, {
+        useminPrepare: 'grunt-usemin',
+        ngtemplates: 'grunt-angular-templates',
+        cdnify: 'grunt-google-cdn',
+        protractor_webdriver: 'grunt-protractor-webdriver'
+      });
+
     /*
      *   Time how long grunt tasks take to run, this might be important when having complex builds that take forever.
      *   For now just to show how fancy grunt is.
@@ -130,7 +138,20 @@ module.exports = function (grunt) {
                 options: {
                     mangle: false
                 }
-            }
+            },
+            karma: {
+                  unit: {
+                    configFile: 'test/karma.conf.js',
+                    singleRun: true
+                  }
+            },
+            protractor: {
+                 options: {
+                   keepAlive: true,
+                   configFile: "protractor.conf.js"
+                 },
+                 run: {}
+               }
         }
     );
 
